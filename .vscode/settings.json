@@ -1,0 +1,5 @@
+{
+    "python.pythonPath": "/home/alexk_local/Code/work/1/py_env/bin/python3",
+    "python.defaultInterpreterPath": "/home/alexk_local/Code/work/1/py_env/bin/python3",
+    "python.languageServer": "Pylance"
+}
