@@ -1,15 +1,12 @@
 # cmake_example for pybind11
 
+In order to compile and install: 
+ 1. source /home/alexk/Code/work/1/py_env1/bin/activate
+ 2. python setup.py install
 
 An example [pybind11](https://github.com/pybind/pybind11) module built with a
 CMake-based build system. This is useful for C++ codebases that have an
-existing CMake project structure. This is in many cases superseded by
-[`scikit_build_example`](https://github.com/pybind/scikit_build_example), which uses
-[scikit-build][], a tool from the makers of CMake designed to allow Python
-packages to be driven from CMake. However, there are still cases where you
-might want full control over the CMake run; and both of these approaches have
-some trade-offs not present in a pure setuptools build (see
-[`python_example`](https://github.com/pybind/python_example))
+existing CMake project structure.
 
 ## Prerequisites
 
@@ -19,11 +16,6 @@ some trade-offs not present in a pure setuptools build (see
 * CMake >= 3.4 or Pip 10+
 * Ninja or Pip 10+
 
-**On Windows**
-
-* Visual Studio 2015 or newer (required for all Python versions, see notes below)
-* CMake >= 3.8 (3.8 was the first version to support VS 2015) or Pip 10+
-
 
 ## Installation
 
@@ -31,7 +23,7 @@ Just clone this repository and pip install. Note the `--recursive` option which 
 needed for the pybind11 submodule:
 
 ```bash
-git clone --recursive https://github.com/pybind/cmake_example.git
+git clone --recursive https://github.com/kopalx/cmake_example.git
 pip install ./cmake_example
 ```
 
@@ -48,12 +40,6 @@ This applies to all Python versions, including 2.7. Unlike regular C extension
 modules, it's perfectly fine to compile a pybind11 module with a VS version newer
 than the target Python's VS version. See the [FAQ] for more details.
 
-**Runtime requirements**
-
-The Visual C++ 2015 redistributable packages are a runtime requirement for this
-project. It can be found [here][vs2015_runtime]. If you use the Anaconda Python
-distribution, you can add `vs2015_runtime` as a platform-dependent runtime
-requirement for you package: see the `conda.recipe/meta.yaml` file in this example.
 
 
 ## Building the documentation
@@ -68,11 +54,6 @@ formats please refer to the Sphinx manual:
  - `make html`
 
 
-## License
-
-Pybind11 is provided under a BSD-style license that can be found in the LICENSE
-file. By using, distributing, or contributing to this project, you agree to the
-terms and conditions of this license.
 
 
 ## Test call
@@ -81,8 +62,3 @@ terms and conditions of this license.
 import cmake_example
 cmake_example.add(1, 2)
 ```
-
-[`cibuildwheel`]:          https://cibuildwheel.readthedocs.io
-[FAQ]: http://pybind11.rtfd.io/en/latest/faq.html#working-with-ancient-visual-studio-2009-builds-on-windows
-[vs2015_runtime]: https://www.microsoft.com/en-us/download/details.aspx?id=48145
-[scikit-build]: https://scikit-build.readthedocs.io/en/latest/

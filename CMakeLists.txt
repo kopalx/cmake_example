@@ -1,5 +1,12 @@
 cmake_minimum_required(VERSION 3.4...3.18)
-project(cmake_example)
+
+project(
+  cmake_example
+  VERSION 0.1
+  DESCRIPTION "python extension module template using pybind11"
+  LANGUAGES CXX)
+
+add_subdirectory(CMakeProjExample)
 
 add_subdirectory(pybind11)
 pybind11_add_module(cmake_example src/main.cpp)
