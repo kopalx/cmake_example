@@ -36,5 +36,10 @@ find_package(GTest REQUIRED)
 find_package(OpenCV REQUIRED)
 #
 
+# code
+add_subdirectory(Examples)
+
+
+
 
 message("\n\n\n")

@@ -8,7 +8,7 @@ else()
 endif()
 
 
-function(set_lib_pip)
+function(set_lib)
     cmake_parse_arguments("" 0 "LIB_NAME" "SOURCES;INCLUDE_LIBS;COMPILE_OPT"  ${ARGN} )
 
     add_library(${_LIB_NAME} ${_SOURCES})
@@ -56,7 +56,7 @@ function(set_lib_pip)
 endfunction()
 
 
-function(set_exec_pip)
+function(set_exec)
     cmake_parse_arguments("" 0 "EXEC_NAME" "SOURCES;INCLUDE_LIBS;COMPILE_OPT"  ${ARGN} )
 
     add_executable(${_EXEC_NAME} ${_SOURCES})

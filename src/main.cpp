@@ -1,4 +1,5 @@
 #include <pybind11/pybind11.h>
+#include "pet.h"
 
 #define STRINGIFY(x) #x
 #define MACRO_STRINGIFY(x) STRINGIFY(x)
@@ -40,4 +41,9 @@ PYBIND11_MODULE(cmake_example, m) {
 #else
     m.attr("__version__") = "dev";
 #endif
+
+    py::class_<ProjExample::Pet>(m, "Pet")
+        .def(py::init<const std::string &>())
+        .def("setName", &ProjExample::Pet::setName)
+        .def("getName", &ProjExample::Pet::getName);
 }
