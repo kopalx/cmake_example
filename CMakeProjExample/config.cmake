@@ -1,4 +1,5 @@
 
+# To make sub-projects have same compilation flags
 
 if(CUDA_ENABLE)
     project(${PROJ_NAME} LANGUAGES CXX CUDA)
