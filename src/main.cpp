@@ -43,7 +43,15 @@ PYBIND11_MODULE(cmake_example, m) {
 #endif
 
     py::class_<ProjExample::Pet>(m, "Pet")
-        .def(py::init<const std::string &>())
-        .def("setName", &ProjExample::Pet::setName)
-        .def("getName", &ProjExample::Pet::getName);
+      .def(py::init<const std::string &>())
+      .def("setName", &ProjExample::Pet::setName)
+      .def("getName", &ProjExample::Pet::getName);
+
+    //py::class_<ProjExample::Dog, ProjExample::Pet /* <- specify C++ parent type */>(m, "Dog")
+    //  .def(py::init<const std::string &>())
+    //  .def("bark", &ProjExample::Dog::bark);
+
+    py::class_<ProjExample::Dog>(m, "nEGGADog")
+      .def(py::init<const std::string &>())
+      .def("bark", &ProjExample::Dog::bark);
 }
