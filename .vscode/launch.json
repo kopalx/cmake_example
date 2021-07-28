@@ -10,6 +10,28 @@
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal"
+        },
+        {
+        // The debugger will then ask you to choose which process to attach the debugger to. 
+        // Hence, first we identify the Python process. Open a new terminal, run ps aux | grep python, and
+        // look for the process that has the token.     
+        // ps aux | grep python | grep token | awk  '{print $2}'
+        //
+        "name": "(gdb) Attach",
+        "type": "cppdbg",
+        "request": "attach",
+        "program": "${env:CODE_HOME}/Code/work/1/py_env/bin/python",
+        //"program": "/home/alexk_local/Code/work/1/py_env/bin/python",
+        "processId": "${command:pickProcess}",
+        "MIMode": "gdb",
+        "setupCommands": [
+            {
+                "description": "Enable pretty-printing for gdb",
+                "text": "-enable-pretty-printing",
+                "ignoreFailures": true
+            }
+        ],
+        "additionalSOLibSearchPath": "${env:CODE_HOME}/Code/work/1/py_env/lib;${env:CODE_HOME}/Code/work/1/py_env/lib/python3.8/site-packages/myPythonLib/"
         }
     ]
 }
